@@ -167,6 +167,7 @@ class SmoothScroll extends VirtualScroll {
   onDraggerMousedown(event) {
     // let ratio =  this.params.ratio;
     this.isDragging = true;
+    this.params.container.el.classList.add('noselect');
     this.mouse.x = event.pageX;
     this.mouse.y = event.pageY;
   }
@@ -186,14 +187,15 @@ class SmoothScroll extends VirtualScroll {
 
   onDraggerMouseup(event) {
     this.isDragging = false;
+    this.params.container.el.classList.remove('noselect');
   }
 
   setDraggable(dragger) {
     var _this = this;
     dragger.addEventListener('mousedown', this.onDraggerMousedown);
-    dragger.addEventListener('mousemove', this.onDraggerMousemove);
-    dragger.addEventListener('mouseup', this.onDraggerMouseup);
-    dragger.addEventListener('mouseleave', this.onDraggerMouseup);
+    window.addEventListener('mousemove', this.onDraggerMousemove);
+    window.addEventListener('mouseup', this.onDraggerMouseup);
+    // dragger.addEventListener('mouseleave', this.onDraggerMouseup);
   }
 
   createScrollBar() {
@@ -207,8 +209,8 @@ class SmoothScroll extends VirtualScroll {
     let rs = rail.style;
     let ds = dragger.style;
 
-    dragger.classList.add('smooth-scroll--dragger');
-    rail.classList.add('smooth-scroll--rail');
+    dragger.classList.add('smooth-scroll-dragger');
+    rail.classList.add('smooth-scroll-rail');
     rail.appendChild(dragger);
     this.params.container.el.appendChild(rail);
 

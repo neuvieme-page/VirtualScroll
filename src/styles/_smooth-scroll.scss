@@ -4,8 +4,18 @@
   overflow: hidden;
 }
 
+.smooth-scroll.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
 .smooth-scroll--inner,
-.smooth-scroll--rail {
+.smooth-scroll-rail {
   position: absolute;
   top     : 0;
 }
@@ -15,12 +25,12 @@
   left : 0;
 }
 
-.smooth-scroll--rail {
+.smooth-scroll-rail {
   right: 0;
   transition: transform 300ms ease-in-out;
 }
 
-.smooth-scroll--dragger {
+.smooth-scroll-dragger {
   background: #000;
   opacity   : 0;
   transition: opacity 300ms ease-in-out;
@@ -28,11 +38,12 @@
 
 // hover for dragger
 
-.smooth-scroll--rail.draggable:hover{
+.smooth-scroll-rail.draggable:hover{
   transform: scaleX(5);
 }
 
-.smooth-scroll--rail.draggable:hover .smooth-scroll--dragger{
+.smooth-scroll.noselect .smooth-scroll-dragger,
+.smooth-scroll-rail.draggable:hover .smooth-scroll-dragger{
   opacity: 1 !important;
   cursor: pointer;
 }
