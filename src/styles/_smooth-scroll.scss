@@ -1,0 +1,38 @@
+.smooth-scroll {
+  width   : 100vw;
+  height  : 100vh;
+  overflow: hidden;
+}
+
+.smooth-scroll--inner,
+.smooth-scroll--rail {
+  position: absolute;
+  top     : 0;
+}
+
+.smooth-scroll--inner {
+  width: 100%;
+  left : 0;
+}
+
+.smooth-scroll--rail {
+  right: 0;
+  transition: transform 300ms ease-in-out;
+}
+
+.smooth-scroll--dragger {
+  background: #000;
+  opacity   : 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+// hover for dragger
+
+.smooth-scroll--rail.draggable:hover{
+  transform: scaleX(5);
+}
+
+.smooth-scroll--rail.draggable:hover .smooth-scroll--dragger{
+  opacity: 1 !important;
+  cursor: pointer;
+}
