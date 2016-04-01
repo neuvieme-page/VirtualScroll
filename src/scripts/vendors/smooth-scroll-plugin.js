@@ -228,8 +228,9 @@ class SmoothScroll extends VirtualScroll {
         rs['right'] = 0;
         rs['height'] = `${container.height}px`;
         ds['height'] = `${ratio * container.height}px`;
-        rs['width'] = `${this.scroll.bar.size}px`;
+        rs['width'] = `${this.scroll.bar.size * 2}px`;
         ds['width'] = `${this.scroll.bar.size}px`;
+        ds['marginLeft'] = `${this.scroll.bar.size}px`;
         break;
       default:
         break;

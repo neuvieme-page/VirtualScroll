@@ -27,6 +27,7 @@
 
 .smooth-scroll-rail {
   right: 0;
+  transform-origin: right;
   transition: transform 300ms ease-in-out;
 }
 

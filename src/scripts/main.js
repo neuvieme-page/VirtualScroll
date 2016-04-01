@@ -13,7 +13,7 @@ import SmoothScroll from 'vendors/smooth-scroll-plugin';
         var scroller = new SmoothScroll({
           container: container,
           bar: true,
-          barSize: 10,
+          barSize: 4,
           barDrag: true
         });
 
